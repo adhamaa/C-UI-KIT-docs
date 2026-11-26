@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";function t(e){if(e!==null)return e===`false`?!1:e===`pointer`||e===`trap-focus`?e:!0}function n(e){if(e!==null)return e===`false`?!1:e!==`pointer`||`pointer`}function r(){return(r=e((()=>{})))()}export{t as n,n as r,r as t};

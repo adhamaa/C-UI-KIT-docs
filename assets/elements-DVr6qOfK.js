@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";import{lt as t,ut as n}from"./use-primitive-Bl2pt8ao.js";function r(e,n){let r=[...e.parts()].filter(e=>e.slot===n&&!!e.el?.isConnected);return t(r).map(({el:e,key:t,props:n})=>({el:e,key:t,props:n}))}function i(){return(i=e((()=>{n()})))()}export{i as n,r as t};

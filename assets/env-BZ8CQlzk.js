@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-sJBDdmOt.js";function t(){return r&&(/iP(hone|ad|od)/.test(navigator.platform)||navigator.platform===`MacIntel`&&navigator.maxTouchPoints>1)}function n(e){return!!e&&r&&getComputedStyle(e).direction===`rtl`}var r;function i(){return(i=e((()=>{r=typeof window<`u`&&typeof document<`u`})))()}export{n as i,r as n,t as r,i as t};
