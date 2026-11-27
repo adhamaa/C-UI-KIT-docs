@@ -1,8 +1,0 @@
-import{n as e,r as t}from"./rolldown-runtime-sJBDdmOt.js";import{t as n}from"./jsx-runtime-MKhVqBIO.js";import{a as r,r as i}from"./Feedback-DfE6PcV0.js";var a=t({MaxHeight:()=>d,Playground:()=>u,__namedExportsOrder:()=>f,default:()=>l}),o,s,c,l,u,d,f;function p(){return(p=e((()=>{r(),o=n(),s=Array.from({length:20},(e,t)=>({id:t,text:`Work order WO-${1040+t} was updated`})),c=(0,o.jsx)(`ul`,{style:{margin:0,padding:0,listStyle:`none`},children:s.map(e=>(0,o.jsx)(`li`,{style:{padding:`10px 12px`,borderBottom:`1px solid var(--ui-border)`},children:e.text},e.id))}),l={title:`Components/Data display/ScrollArea`,component:i,tags:[`!autodocs`],parameters:{layout:`padded`},args:{height:240,type:`hover`,"aria-label":`Notifications`,children:c},argTypes:{type:{control:`inline-radio`,options:[`auto`,`always`,`scroll`,`hover`]},children:{control:!1}},decorators:[e=>(0,o.jsx)(`div`,{style:{maxWidth:360,border:`1px solid var(--ui-border)`,borderRadius:`var(--ui-radius)`},children:(0,o.jsx)(e,{})})]},u={},d={args:{height:void 0,maxHeight:200,type:`always`,offsetScrollbars:!0}},f=[`Playground`,`MaxHeight`],u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:`{}`,...u.parameters?.docs?.source}}},d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
-  args: {
-    height: undefined,
-    maxHeight: 200,
-    type: 'always',
-    offsetScrollbars: true
-  }
-}`,...d.parameters?.docs?.source},description:{story:"`maxHeight` grows with the content, then scrolls.",...d.parameters?.docs?.description}}}})))()}export{p as i,u as n,a as r,d as t};
