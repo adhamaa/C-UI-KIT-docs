@@ -309,8 +309,8 @@ const Empty = () => <Timeline
 | --- | --- | --- | --- |
 | `events` (required) | `T[]` |  |  |
 | `aria-label` | `string` | `'Timeline'` | Accessible name of the list. |
-| `variant` | `enum` | `activity` | `activity`: dense, time first. `status`: roomier, for workflow stages. |
-| `appearance` | `enum` | `plain` | `plain`: text beside small markers. `card`: each event in a bordered card coloured by its status. With `variant="status"`, card adds large markers with a status icon and shows the time as a pill; with `activity`, a ringed dot, a dashed line and a date and time row. |
+| `variant` | `'status' \| 'activity'` | `activity` | `activity`: dense, time first. `status`: roomier, for workflow stages. |
+| `appearance` | `'plain' \| 'card'` | `plain` | `plain`: text beside small markers. `card`: each event in a bordered card coloured by its status. With `variant="status"`, card adds large markers with a status icon and shows the time as a pill; with `activity`, a ringed dot, a dashed line and a date and time row. |
 | `alternating` | `boolean` | `false` | With `variant="status"`: a centred line with events alternating left and right, the time on the opposite side. Falls back to one column when the timeline is narrower than 40rem. |
 | `sentFromLabel` | `ReactNode` | `Sent from` | Label of the `sentFrom` block, for translation. |
 | `renderIcon` | `((event: T) => ReactNode)` |  | Replace an event's marker content. |

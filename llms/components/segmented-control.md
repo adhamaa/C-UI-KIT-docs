@@ -127,7 +127,7 @@ import { RHFSegmentedControl } from '@adhamaa/ui-kit/form'
 | `required` | `boolean` |  | Marks the field required: the browser blocks submit and the label shows an asterisk. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |

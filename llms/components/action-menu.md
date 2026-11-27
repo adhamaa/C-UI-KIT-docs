@@ -158,8 +158,8 @@ const WithHeader = () => <ActionMenu
 | `contentClassName` | `string` |  | Classes for the popup. |
 | `header` | `ReactNode` |  | Content above the items that isn't an action, like the signed-in user's name. |
 | `width` | `string \| number` | `fits the items` | Popup width, any CSS length. |
-| `side` | `enum` | `bottom` | Which side of the trigger the popup opens on. |
-| `align` | `enum` | `start` | How the popup lines up with the trigger. |
+| `side` | `'top' \| 'right' \| 'bottom' \| 'left'` | `bottom` | Which side of the trigger the popup opens on. |
+| `align` | `'end' \| 'center' \| 'start'` | `start` | How the popup lines up with the trigger. |
 | `disabled` | `boolean` |  |  |
 
 ## Styling

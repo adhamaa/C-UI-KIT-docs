@@ -43,7 +43,7 @@ const TitleOnly = () => <EmptyState title="Nothing to review" description={undef
 | `description` | `ReactNode` |  |  |
 | `icon` | `ReactNode` | `an inbox icon` |  |
 | `action` | `ReactNode` |  | A button or link to recover, like "Add package". |
-| `size` | `enum` | `md` |  |
+| `size` | `'sm' \| 'md' \| 'lg'` | `md` |  |
 | `className` | `string` |  |  |
 
 ## Styling

@@ -167,9 +167,9 @@ const AsSection = () => <Card
 | `description` | `ReactNode` |  |  |
 | `actions` | `ReactNode` |  | Buttons or a menu at the top right. |
 | `footer` | `ReactNode` |  | Content along the bottom. |
-| `padding` | `enum` | `md` | Inner padding. |
+| `padding` | `'none' \| 'xs' \| 'sm' \| 'md' \| 'lg'` | `md` | Inner padding. |
 | `withBorder` | `boolean` | `true` | Draw a border. |
-| `component` | `enum` | `div` | Render as another element, like `section` or `article`. |
+| `component` | `'article' \| 'aside' \| 'div' \| 'section'` | `div` | Render as another element, like `section` or `article`. |
 
 Other HTML attributes pass through.
 

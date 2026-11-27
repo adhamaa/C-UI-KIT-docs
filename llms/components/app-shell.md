@@ -161,11 +161,11 @@ const Compact = () => <SampleShell
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `children` (required) | `ReactNode` |  | `Header`, `Sidebar`, `Main` and `Footer` parts, in any order. |
-| `layout` | `enum` | `'sidebar'` | Where the sidebar sits. |
-| `sidebarState` | `enum` |  | The sidebar's state. Pass it with `onSidebarStateChange` to control it, for example to save it. |
-| `defaultSidebarState` | `enum` | `'full'` | The state it starts in, when uncontrolled. |
+| `layout` | `'header' \| 'sidebar'` | `'sidebar'` | Where the sidebar sits. |
+| `sidebarState` | `'hidden' \| 'full' \| 'mini'` |  | The sidebar's state. Pass it with `onSidebarStateChange` to control it, for example to save it. |
+| `defaultSidebarState` | `'hidden' \| 'full' \| 'mini'` | `'full'` | The state it starts in, when uncontrolled. |
 | `onSidebarStateChange` | `((state: AppShellSidebarState) => void)` |  | Called when the sidebar's state changes. |
-| `collapsedState` | `enum` | `'mini'` | What `SidebarToggle` collapses the sidebar to. |
+| `collapsedState` | `'hidden' \| 'mini'` | `'mini'` | What `SidebarToggle` collapses the sidebar to. |
 | `sidebarWidth` | `{ full?: string \| number; mini?: string \| number; } \| undefined` | `{ full: 300, mini: 64 }` | The sidebar's width when full and when mini: pixels or any CSS length. |
 | `breakpoint` | `false \| AppShellBreakpoint` | `'md'` | Below this width the sidebar becomes a drawer that `MenuButton` opens. `false` keeps it beside the page at every width. |
 | `mobileOpened` | `boolean` |  | Whether the drawer is open. Pass it with `onMobileOpenedChange` to control it. |

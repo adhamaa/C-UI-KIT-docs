@@ -137,8 +137,8 @@ const Multiple = () => <Accordion
 | `defaultValue` | `string[]` |  |  |
 | `onChange` | `((value: string[]) => void)` |  |  |
 | `multiple` | `boolean` | `false` | Allow several open at once. |
-| `variant` | `enum` | `default` | `separated`: each item in its own card. |
-| `headingLevel` | `enum` | `3` | The heading level of each title, for the page outline. |
+| `variant` | `'default' \| 'separated'` | `default` | `separated`: each item in its own card. |
+| `headingLevel` | `2 \| 3 \| 4 \| 5 \| 6` | `3` | The heading level of each title, for the page outline. |
 | `className` | `string` |  |  |
 | `classNames` | `Partial<Record<AccordionPart, string>>` |  |  |
 

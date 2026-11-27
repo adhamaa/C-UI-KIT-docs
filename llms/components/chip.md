@@ -138,7 +138,7 @@ import { RHFChip } from '@adhamaa/ui-kit/form'
 | `defaultChecked` | `boolean` |  |  |
 | `onChange` | `((checked: boolean) => void)` |  |  |
 | `disabled` | `boolean` |  |  |
-| `size` | `enum` | `md` |  |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `md` |  |
 | `className` | `string` |  |  |
 | `withoutIcon` | `boolean` |  | Hide the check mark shown while checked. |
 

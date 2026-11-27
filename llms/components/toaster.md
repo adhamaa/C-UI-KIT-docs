@@ -152,8 +152,8 @@ Render it yourself only if you set `withToaster={false}` on `UIKitProvider`, for
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `side` | `enum` | `bottom` |  |
-| `align` | `enum` | `end` |  |
+| `side` | `'top' \| 'bottom'` | `bottom` |  |
+| `align` | `'end' \| 'center' \| 'start'` | `end` |  |
 | `maxVisible` | `number` | `3` |  |
 
 ## Styling

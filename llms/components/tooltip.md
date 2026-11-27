@@ -101,13 +101,13 @@ const Sides = (args) => (
 | --- | --- | --- | --- |
 | `label` (required) | `ReactNode` |  | What the tooltip says. With no label, the child renders on its own. |
 | `children` (required) | `ReactElement<Record<string, any>, string \| JSXElementConstructor<any>>` |  | The element the tooltip points at. It must accept a ref and props, like a button, a link or a kit component. |
-| `side` | `enum` | `top` |  |
-| `align` | `enum` | `center` |  |
+| `side` | `'top' \| 'right' \| 'bottom' \| 'left'` | `top` |  |
+| `align` | `'end' \| 'center' \| 'start'` | `center` |  |
 | `withArrow` | `boolean` |  | Draw an arrow pointing at the trigger. |
 | `maxWidth` | `string \| number` | `20rem` | Wrap long text at this width, any CSS length. |
 | `delay` | `number` | `300` | Pause before opening, in ms. |
 | `disabled` | `boolean` |  | Don't show the tooltip; the child still renders. |
-| `type` | `enum` | `description` | `description` (default) adds the label to the trigger's description. `label` makes it the trigger's name, for icon-only buttons. |
+| `type` | `'label' \| 'description'` | `description` | `description` (default) adds the label to the trigger's description. `label` makes it the trigger's name, for icon-only buttons. |
 | `className` | `string` |  |  |
 
 ## Styling

@@ -121,8 +121,8 @@ const WithIconAndCount = () => (
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `variant` | `enum` | `light` | `light`: tinted. `filled`: solid. `outline`: bordered. `dot`: a coloured dot and text. |
-| `size` | `enum` | `sm` |  |
+| `variant` | `'light' \| 'filled' \| 'outline' \| 'dot'` | `light` | `light`: tinted. `filled`: solid. `outline`: bordered. `dot`: a coloured dot and text. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `sm` |  |
 | `leftSection` | `ReactNode` |  |  |
 
 Other `<span>` attributes pass through.

@@ -77,7 +77,7 @@ import { RHFMonthPicker } from '@adhamaa/ui-kit/form'
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -93,7 +93,7 @@ import { RHFMonthPicker } from '@adhamaa/ui-kit/form'
 | `placeholder` | `string` |  | Shown while no month is picked. |
 | `leftSection` | `ReactNode` |  | Content inside the field, before the month, like a calendar icon. |
 | `locale` | `string` | `the page's language` |  |
-| `monthFormat` | `enum` | `'long'` | How the field shows the month: `long` is "March 2026", `short` "Mar 2026". |
+| `monthFormat` | `'long' \| 'short'` | `'long'` | How the field shows the month: `long` is "March 2026", `short` "Mar 2026". |
 
 ## Styling
 

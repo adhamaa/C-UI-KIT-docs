@@ -68,7 +68,7 @@ const Square = () => <Avatar src={portrait(200)} name="Aisyah Rahman" size="lg" 
 | `alt` | `string` |  | Alt text for the image. Defaults to `name`. |
 | `name` | `string` |  | A person's name: its initials show while the image loads or if it fails. |
 | `size` | `number \| Size \| "xl"` | `md` | Preset or pixels. |
-| `radius` | `enum` | `full` |  |
+| `radius` | `'md' \| 'full'` | `full` |  |
 | `fallback` | `ReactNode` |  | Shown instead of initials when there's no name. |
 | `className` | `string` |  |  |
 

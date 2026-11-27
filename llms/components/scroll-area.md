@@ -61,7 +61,7 @@ const MaxHeight = () => <ScrollArea
 | --- | --- | --- | --- |
 | `height` | `string \| number` |  | Fixed height, any CSS length. |
 | `maxHeight` | `string \| number` |  | Grow with the content up to this height, then scroll. |
-| `type` | `enum` | `hover` | When scrollbars show. |
+| `type` | `'auto' \| 'always' \| 'scroll' \| 'hover'` | `hover` | When scrollbars show. |
 | `offsetScrollbars` | `boolean` |  | Keep space for the scrollbar so content doesn't sit under it. |
 | `aria-label` | `string` |  | Name the region when it holds meaningful content. |
 | `className` | `string` |  |  |

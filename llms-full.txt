@@ -1042,13 +1042,13 @@ const FullWidth = () => <Button variant="filled" size="md" onClick={() => {}} fu
 | --- | --- | --- | --- |
 | `style` | `CSSProperties \| ((state: ButtonState) => CSSProperties)` |  | Styles, or a function of the part's state that returns them. |
 | `onClick` | `((event: MouseEvent<HTMLElement, MouseEvent>, details: ActionDetails) => unknown)` |  | Runs when the button is pressed. Return a Promise to make the button pending until it settles: it gets `aria-busy`, `aria-disabled` and `data-pending`, keeps focus, ignores presses meanwhile, so a form can't submit twice, and says `pendingAnnouncement` after a second. The event's element is whatever `render` renders, like a link. `details.source` says how it was pressed, for changes made after an `await`. |
-| `type` | `enum` | `button` | What a native button does in a form: `"submit"` submits it and `"reset"` resets it. Ignored when the button renders as something else. @defaultValue "button" |
+| `type` | `'button' \| 'reset' \| 'submit'` | `button` | What a native button does in a form: `"submit"` submits it and `"reset"` resets it. Ignored when the button renders as something else. @defaultValue "button" |
 | `render` | `RenderProp<ButtonState>` |  | Renders your own element: one that receives the part's props, or a function of the props and the state. |
 | `focusableWhenDisabled` | `boolean` |  | Keeps a disabled button in the tab order with `aria-disabled` instead of the native attribute, so it can hold focus while it becomes disabled and host a tooltip that says why. Presses still do nothing. @defaultValue false |
 | `pendingAnnouncement` | `string` |  | What screen readers hear once the button has been pending for a second, so a slow action doesn't pass in silence. Set it in the page's language. An empty string says nothing. @defaultValue "Loading" |
 | `debug` | `boolean` |  | Logs every state change with its reason to the console, in development builds. |
-| `variant` | `enum` | `subtle` |  |
-| `size` | `enum` | `md` |  |
+| `variant` | `'light' \| 'filled' \| 'outline' \| 'subtle' \| 'default' \| 'danger'` | `filled` |  |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `md` |  |
 | `leftSection` | `ReactNode` |  | Content before the label, usually an icon. |
 | `rightSection` | `ReactNode` |  | Content after the label. |
 | `loading` | `boolean` |  | Shows a spinner and blocks presses. A Promise returned from `onClick` does this on its own. |
@@ -1249,7 +1249,7 @@ The form value is a `boolean`.
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -1443,7 +1443,7 @@ import { RHFChip } from '@adhamaa/ui-kit/form'
 | `defaultChecked` | `boolean` |  |  |
 | `onChange` | `((checked: boolean) => void)` |  |  |
 | `disabled` | `boolean` |  |  |
-| `size` | `enum` | `md` |  |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `md` |  |
 | `className` | `string` |  |  |
 | `withoutIcon` | `boolean` |  | Hide the check mark shown while checked. |
 
@@ -1620,7 +1620,7 @@ import { RHFColorInput } from '@adhamaa/ui-kit/form'
 | `defaultValue` | `string` |  |  |
 | `onChange` | `((value: string) => void)` |  | Called as the colour changes, including mid-drag. |
 | `onChangeEnd` | `((value: string) => void)` |  | Called once a change ends: a drag released or an edit committed. |
-| `format` | `enum` | `'hex'` |  |
+| `format` | `'hex' \| 'srgb' \| 'hsl' \| 'oklch'` | `'hex'` |  |
 | `swatches` | `string[]` |  | Preset colours to pick from. |
 | `withAlpha` | `boolean` |  | Show an alpha slider. |
 | `label` | `ReactNode` |  | The visible label. |
@@ -1630,7 +1630,7 @@ import { RHFColorInput } from '@adhamaa/ui-kit/form'
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -1821,7 +1821,7 @@ The form value is a `File`, a `File[]` or `null`. Upload the files in your submi
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -1832,8 +1832,8 @@ The form value is a `File`, a `File[]` or `null`. Upload the files in your submi
 | `maxFiles` | `number` |  | Most files, with `multiple`. |
 | `onReject` | `((rejected: FileRejectionInfo[]) => void)` |  | Called with files that failed `accept`, `maxSize`, `maxFiles` or the duplicate check. |
 | `showRejections` | `boolean \| ((rejected: FileRejectionInfo[]) => ReactNode)` | `true` | Show a message under the field when files are rejected. Pass a function to word it yourself. |
-| `variant` | `enum` | `'button'` | `button`: a compact field with a Browse button. `dropzone`: a large area to drop files on. |
-| `preview` | `enum` | `'list'` | How chosen files show. `list`: name and size rows. `cards`: cards with an image thumbnail (or a document icon), name and size. With `cards` in a dropzone, the cards fill the dropzone, which still takes drops. |
+| `variant` | `'button' \| 'dropzone'` | `'button'` | `button`: a compact field with a Browse button. `dropzone`: a large area to drop files on. |
+| `preview` | `'list' \| 'cards'` | `'list'` | How chosen files show. `list`: name and size rows. `cards`: cards with an image thumbnail (or a document icon), name and size. With `cards` in a dropzone, the cards fill the dropzone, which still takes drops. |
 | `placeholder` | `ReactNode` |  | Main text inside the dropzone, or beside the button. |
 | `hint` | `ReactNode` |  | Smaller text under the dropzone's placeholder, like a size limit. |
 | `buttonLabel` | `ReactNode` | `'Browse'` | Label of the browse button. |
@@ -2056,7 +2056,7 @@ The form value is a `number` or `null`.
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -2204,7 +2204,7 @@ import { RHFPasswordInput } from '@adhamaa/ui-kit/form'
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -2378,7 +2378,7 @@ import { RHFRadioGroup } from '@adhamaa/ui-kit/form'
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -2388,7 +2388,7 @@ import { RHFRadioGroup } from '@adhamaa/ui-kit/form'
 | `value` | `string \| null` |  |  |
 | `defaultValue` | `string \| null` |  |  |
 | `onChange` | `((value: string \| null) => void)` |  |  |
-| `orientation` | `enum` | `'vertical'` | Lay the radios out in a row. |
+| `orientation` | `'vertical' \| 'horizontal'` | `'vertical'` | Lay the radios out in a row. |
 
 ## Styling
 
@@ -2643,7 +2643,7 @@ import { RHFSegmentedControl } from '@adhamaa/ui-kit/form'
 | `required` | `boolean` |  | Marks the field required: the browser blocks submit and the label shows an asterisk. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -2780,7 +2780,7 @@ import { RHFSwitch } from '@adhamaa/ui-kit/form'
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -2791,7 +2791,7 @@ import { RHFSwitch } from '@adhamaa/ui-kit/form'
 | `onChange` | `((checked: boolean) => void)` |  | Called with the new checked state. |
 | `onBlur` | `FocusEventHandler<HTMLButtonElement>` |  |  |
 | `value` | `string` | `'on'` | What the control submits while checked. |
-| `labelPosition` | `enum` | `end` | Where the label sits: beside the switch, or above it like other fields. |
+| `labelPosition` | `'end' \| 'top'` | `end` | Where the label sits: beside the switch, or above it like other fields. |
 
 ## Styling
 
@@ -3018,7 +3018,7 @@ import { RHFTextInput } from '@adhamaa/ui-kit/form'
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -3187,7 +3187,7 @@ import { RHFTextarea } from '@adhamaa/ui-kit/form'
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -3342,7 +3342,7 @@ The form value is a `string`.
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -3654,7 +3654,7 @@ The form value is a `string[]`.
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -4130,7 +4130,7 @@ See **Forms with react-hook-form** for config-driven forms.
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -4329,7 +4329,7 @@ The form value is a `YYYY-MM-DD` string or `null`.
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -4472,7 +4472,7 @@ import { RHFMonthPicker } from '@adhamaa/ui-kit/form'
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -4488,7 +4488,7 @@ import { RHFMonthPicker } from '@adhamaa/ui-kit/form'
 | `placeholder` | `string` |  | Shown while no month is picked. |
 | `leftSection` | `ReactNode` |  | Content inside the field, before the month, like a calendar icon. |
 | `locale` | `string` | `the page's language` |  |
-| `monthFormat` | `enum` | `'long'` | How the field shows the month: `long` is "March 2026", `short` "Mar 2026". |
+| `monthFormat` | `'long' \| 'short'` | `'long'` | How the field shows the month: `long` is "March 2026", `short` "Mar 2026". |
 
 ## Styling
 
@@ -4609,7 +4609,7 @@ import { RHFTimeInput } from '@adhamaa/ui-kit/form'
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -4620,7 +4620,7 @@ import { RHFTimeInput } from '@adhamaa/ui-kit/form'
 | `onChange` | `((value: string \| null) => void)` |  |  |
 | `onBlur` | `FocusEventHandler<HTMLElement>` |  |  |
 | `withSeconds` | `boolean` |  | Show seconds as well. |
-| `hourCycle` | `enum` | `the locale's` | Use a 12 or 24 hour clock. |
+| `hourCycle` | `12 \| 24` | `the locale's` | Use a 12 or 24 hour clock. |
 | `min` | `string` |  |  |
 | `max` | `string` |  |  |
 
@@ -4818,8 +4818,8 @@ const WithHeader = () => <ActionMenu
 | `contentClassName` | `string` |  | Classes for the popup. |
 | `header` | `ReactNode` |  | Content above the items that isn't an action, like the signed-in user's name. |
 | `width` | `string \| number` | `fits the items` | Popup width, any CSS length. |
-| `side` | `enum` | `bottom` | Which side of the trigger the popup opens on. |
-| `align` | `enum` | `start` | How the popup lines up with the trigger. |
+| `side` | `'top' \| 'right' \| 'bottom' \| 'left'` | `bottom` | Which side of the trigger the popup opens on. |
+| `align` | `'end' \| 'center' \| 'start'` | `start` | How the popup lines up with the trigger. |
 | `disabled` | `boolean` |  |  |
 
 ## Styling
@@ -5263,8 +5263,8 @@ const Placement = (args) => (
 | `opened` | `boolean` |  | Controlled open state. |
 | `defaultOpened` | `boolean` |  |  |
 | `onOpenChange` | `((opened: boolean) => void)` |  |  |
-| `side` | `enum` | `bottom` | Which side of the trigger the popup opens on. |
-| `align` | `enum` | `start` | How the popup lines up with the trigger. |
+| `side` | `'top' \| 'right' \| 'bottom' \| 'left'` | `bottom` | Which side of the trigger the popup opens on. |
+| `align` | `'end' \| 'center' \| 'start'` | `start` | How the popup lines up with the trigger. |
 | `width` | `string \| number` | `fits the content` | Popup width, any CSS length. |
 | `className` | `string` |  | Classes for the trigger button. |
 | `contentClassName` | `string` |  | Classes for the popup. |
@@ -5466,8 +5466,8 @@ Render it yourself only if you set `withToaster={false}` on `UIKitProvider`, for
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `side` | `enum` | `bottom` |  |
-| `align` | `enum` | `end` |  |
+| `side` | `'top' \| 'bottom'` | `bottom` |  |
+| `align` | `'end' \| 'center' \| 'start'` | `end` |  |
 | `maxVisible` | `number` | `3` |  |
 
 ## Styling
@@ -5609,13 +5609,13 @@ const Sides = (args) => (
 | --- | --- | --- | --- |
 | `label` (required) | `ReactNode` |  | What the tooltip says. With no label, the child renders on its own. |
 | `children` (required) | `ReactElement<Record<string, any>, string \| JSXElementConstructor<any>>` |  | The element the tooltip points at. It must accept a ref and props, like a button, a link or a kit component. |
-| `side` | `enum` | `top` |  |
-| `align` | `enum` | `center` |  |
+| `side` | `'top' \| 'right' \| 'bottom' \| 'left'` | `top` |  |
+| `align` | `'end' \| 'center' \| 'start'` | `center` |  |
 | `withArrow` | `boolean` |  | Draw an arrow pointing at the trigger. |
 | `maxWidth` | `string \| number` | `20rem` | Wrap long text at this width, any CSS length. |
 | `delay` | `number` | `300` | Pause before opening, in ms. |
 | `disabled` | `boolean` |  | Don't show the tooltip; the child still renders. |
-| `type` | `enum` | `description` | `description` (default) adds the label to the trigger's description. `label` makes it the trigger's name, for icon-only buttons. |
+| `type` | `'label' \| 'description'` | `description` | `description` (default) adds the label to the trigger's description. `label` makes it the trigger's name, for icon-only buttons. |
 | `className` | `string` |  |  |
 
 ## Styling
@@ -5737,8 +5737,8 @@ const InContext = () => (
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `variant` | `enum` | `dots` | `dots` is the staggered three-dot loader; `spinner` a ring. |
-| `size` | `enum` | `md` |  |
+| `variant` | `'dots' \| 'spinner'` | `dots` | `dots` is the staggered three-dot loader; `spinner` a ring. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `md` |  |
 | `color` | `string` |  | Colour: any CSS colour. Defaults to the primary foreground of the context. |
 | `label` | `string \| null` | `Loading` | What screen readers hear. Pass `null` when something nearby already says it's loading, like a button label. |
 | `className` | `string` |  |  |
@@ -6076,7 +6076,7 @@ const Square = () => <Avatar src={portrait(200)} name="Aisyah Rahman" size="lg" 
 | `alt` | `string` |  | Alt text for the image. Defaults to `name`. |
 | `name` | `string` |  | A person's name: its initials show while the image loads or if it fails. |
 | `size` | `number \| Size \| "xl"` | `md` | Preset or pixels. |
-| `radius` | `enum` | `full` |  |
+| `radius` | `'md' \| 'full'` | `full` |  |
 | `fallback` | `ReactNode` |  | Shown instead of initials when there's no name. |
 | `className` | `string` |  |  |
 
@@ -6233,8 +6233,8 @@ const WithIconAndCount = () => (
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `variant` | `enum` | `light` | `light`: tinted. `filled`: solid. `outline`: bordered. `dot`: a coloured dot and text. |
-| `size` | `enum` | `sm` |  |
+| `variant` | `'light' \| 'filled' \| 'outline' \| 'dot'` | `light` | `light`: tinted. `filled`: solid. `outline`: bordered. `dot`: a coloured dot and text. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `sm` |  |
 | `leftSection` | `ReactNode` |  |  |
 
 Other `<span>` attributes pass through.
@@ -6441,9 +6441,9 @@ const AsSection = () => <Card
 | `description` | `ReactNode` |  |  |
 | `actions` | `ReactNode` |  | Buttons or a menu at the top right. |
 | `footer` | `ReactNode` |  | Content along the bottom. |
-| `padding` | `enum` | `md` | Inner padding. |
+| `padding` | `'none' \| 'xs' \| 'sm' \| 'md' \| 'lg'` | `md` | Inner padding. |
 | `withBorder` | `boolean` | `true` | Draw a border. |
-| `component` | `enum` | `div` | Render as another element, like `section` or `article`. |
+| `component` | `'article' \| 'aside' \| 'div' \| 'section'` | `div` | Render as another element, like `section` or `article`. |
 
 Other HTML attributes pass through.
 
@@ -6528,7 +6528,7 @@ const TitleOnly = () => <EmptyState title="Nothing to review" description={undef
 | `description` | `ReactNode` |  |  |
 | `icon` | `ReactNode` | `an inbox icon` |  |
 | `action` | `ReactNode` |  | A button or link to recover, like "Add package". |
-| `size` | `enum` | `md` |  |
+| `size` | `'sm' \| 'md' \| 'lg'` | `md` |  |
 | `className` | `string` |  |  |
 
 ## Styling
@@ -6741,7 +6741,7 @@ const MaxHeight = () => <ScrollArea
 | --- | --- | --- | --- |
 | `height` | `string \| number` |  | Fixed height, any CSS length. |
 | `maxHeight` | `string \| number` |  | Grow with the content up to this height, then scroll. |
-| `type` | `enum` | `hover` | When scrollbars show. |
+| `type` | `'auto' \| 'always' \| 'scroll' \| 'hover'` | `hover` | When scrollbars show. |
 | `offsetScrollbars` | `boolean` |  | Keep space for the scrollbar so content doesn't sit under it. |
 | `aria-label` | `string` |  | Name the region when it holds meaningful content. |
 | `className` | `string` |  |  |
@@ -7085,8 +7085,8 @@ const Empty = () => <Timeline
 | --- | --- | --- | --- |
 | `events` (required) | `T[]` |  |  |
 | `aria-label` | `string` | `'Timeline'` | Accessible name of the list. |
-| `variant` | `enum` | `activity` | `activity`: dense, time first. `status`: roomier, for workflow stages. |
-| `appearance` | `enum` | `plain` | `plain`: text beside small markers. `card`: each event in a bordered card coloured by its status. With `variant="status"`, card adds large markers with a status icon and shows the time as a pill; with `activity`, a ringed dot, a dashed line and a date and time row. |
+| `variant` | `'status' \| 'activity'` | `activity` | `activity`: dense, time first. `status`: roomier, for workflow stages. |
+| `appearance` | `'plain' \| 'card'` | `plain` | `plain`: text beside small markers. `card`: each event in a bordered card coloured by its status. With `variant="status"`, card adds large markers with a status icon and shows the time as a pill; with `activity`, a ringed dot, a dashed line and a date and time row. |
 | `alternating` | `boolean` | `false` | With `variant="status"`: a centred line with events alternating left and right, the time on the opposite side. Falls back to one column when the timeline is narrower than 40rem. |
 | `sentFromLabel` | `ReactNode` | `Sent from` | Label of the `sentFrom` block, for translation. |
 | `renderIcon` | `((event: T) => ReactNode)` |  | Replace an event's marker content. |
@@ -7272,8 +7272,8 @@ const Multiple = () => <Accordion
 | `defaultValue` | `string[]` |  |  |
 | `onChange` | `((value: string[]) => void)` |  |  |
 | `multiple` | `boolean` | `false` | Allow several open at once. |
-| `variant` | `enum` | `default` | `separated`: each item in its own card. |
-| `headingLevel` | `enum` | `3` | The heading level of each title, for the page outline. |
+| `variant` | `'default' \| 'separated'` | `default` | `separated`: each item in its own card. |
+| `headingLevel` | `2 \| 3 \| 4 \| 5 \| 6` | `3` | The heading level of each title, for the page outline. |
 | `className` | `string` |  |  |
 | `classNames` | `Partial<Record<AccordionPart, string>>` |  |  |
 
@@ -7479,11 +7479,11 @@ const Compact = () => <SampleShell
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
 | `children` (required) | `ReactNode` |  | `Header`, `Sidebar`, `Main` and `Footer` parts, in any order. |
-| `layout` | `enum` | `'sidebar'` | Where the sidebar sits. |
-| `sidebarState` | `enum` |  | The sidebar's state. Pass it with `onSidebarStateChange` to control it, for example to save it. |
-| `defaultSidebarState` | `enum` | `'full'` | The state it starts in, when uncontrolled. |
+| `layout` | `'header' \| 'sidebar'` | `'sidebar'` | Where the sidebar sits. |
+| `sidebarState` | `'hidden' \| 'full' \| 'mini'` |  | The sidebar's state. Pass it with `onSidebarStateChange` to control it, for example to save it. |
+| `defaultSidebarState` | `'hidden' \| 'full' \| 'mini'` | `'full'` | The state it starts in, when uncontrolled. |
 | `onSidebarStateChange` | `((state: AppShellSidebarState) => void)` |  | Called when the sidebar's state changes. |
-| `collapsedState` | `enum` | `'mini'` | What `SidebarToggle` collapses the sidebar to. |
+| `collapsedState` | `'hidden' \| 'mini'` | `'mini'` | What `SidebarToggle` collapses the sidebar to. |
 | `sidebarWidth` | `{ full?: string \| number; mini?: string \| number; } \| undefined` | `{ full: 300, mini: 64 }` | The sidebar's width when full and when mini: pixels or any CSS length. |
 | `breakpoint` | `false \| AppShellBreakpoint` | `'md'` | Below this width the sidebar becomes a drawer that `MenuButton` opens. `false` keeps it beside the page at every width. |
 | `mobileOpened` | `boolean` |  | Whether the drawer is open. Pass it with `onMobileOpenedChange` to control it. |
@@ -7990,8 +7990,8 @@ Hidden panels unmount by default. Set `keepMounted` to keep their state, like a 
 | `value` | `string \| null` |  |  |
 | `defaultValue` | `string \| null` |  |  |
 | `onChange` | `((value: string) => void)` |  |  |
-| `variant` | `enum` | `line` | `line`: an underline under the selected tab. `pills`: a filled pill. |
-| `orientation` | `enum` | `horizontal` |  |
+| `variant` | `'line' \| 'pills'` | `line` | `line`: an underline under the selected tab. `pills`: a filled pill. |
+| `orientation` | `'vertical' \| 'horizontal'` | `horizontal` |  |
 | `grow` | `boolean` |  | Stretch the tabs across the list. |
 | `keepMounted` | `boolean` |  | Keep hidden panels mounted, so their state survives switching. |
 | `aria-label` | `string` |  | Accessible name of the tab list. |
@@ -8081,12 +8081,12 @@ Takes the **IconButton** props except `onClick` and `children`.
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `size` | `enum` | `'md'` |  |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` |  |
 | `className` | `string` |  |  |
 | `style` | `CSSProperties \| ((state: ButtonState) => CSSProperties)` |  | Styles, or a function of the part's state that returns them. |
-| `variant` | `enum` | `'filled'` |  |
+| `variant` | `'light' \| 'filled' \| 'outline' \| 'subtle' \| 'default' \| 'danger'` | `'filled'` |  |
 | `loading` | `boolean` |  | Shows a spinner and blocks presses. A Promise returned from `onClick` does this on its own. |
-| `type` | `enum` |  | What a native button does in a form: `"submit"` submits it and `"reset"` resets it. Ignored when the button renders as something else. @defaultValue "button" |
+| `type` | `'button' \| 'reset' \| 'submit'` |  | What a native button does in a form: `"submit"` submits it and `"reset"` resets it. Ignored when the button renders as something else. @defaultValue "button" |
 | `render` | `RenderProp<ButtonState>` |  | Renders your own element: one that receives the part's props, or a function of the props and the state. |
 | `focusableWhenDisabled` | `boolean` |  | Keeps a disabled button in the tab order with `aria-disabled` instead of the native attribute, so it can hold focus while it becomes disabled and host a tooltip that says why. Presses still do nothing. @defaultValue false |
 | `pendingAnnouncement` | `string` |  | What screen readers hear once the button has been pending for a second, so a slow action doesn't pass in silence. Set it in the page's language. An empty string says nothing. @defaultValue "Loading" |

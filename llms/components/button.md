@@ -144,13 +144,13 @@ const FullWidth = () => <Button variant="filled" size="md" onClick={() => {}} fu
 | --- | --- | --- | --- |
 | `style` | `CSSProperties \| ((state: ButtonState) => CSSProperties)` |  | Styles, or a function of the part's state that returns them. |
 | `onClick` | `((event: MouseEvent<HTMLElement, MouseEvent>, details: ActionDetails) => unknown)` |  | Runs when the button is pressed. Return a Promise to make the button pending until it settles: it gets `aria-busy`, `aria-disabled` and `data-pending`, keeps focus, ignores presses meanwhile, so a form can't submit twice, and says `pendingAnnouncement` after a second. The event's element is whatever `render` renders, like a link. `details.source` says how it was pressed, for changes made after an `await`. |
-| `type` | `enum` | `button` | What a native button does in a form: `"submit"` submits it and `"reset"` resets it. Ignored when the button renders as something else. @defaultValue "button" |
+| `type` | `'button' \| 'reset' \| 'submit'` | `button` | What a native button does in a form: `"submit"` submits it and `"reset"` resets it. Ignored when the button renders as something else. @defaultValue "button" |
 | `render` | `RenderProp<ButtonState>` |  | Renders your own element: one that receives the part's props, or a function of the props and the state. |
 | `focusableWhenDisabled` | `boolean` |  | Keeps a disabled button in the tab order with `aria-disabled` instead of the native attribute, so it can hold focus while it becomes disabled and host a tooltip that says why. Presses still do nothing. @defaultValue false |
 | `pendingAnnouncement` | `string` |  | What screen readers hear once the button has been pending for a second, so a slow action doesn't pass in silence. Set it in the page's language. An empty string says nothing. @defaultValue "Loading" |
 | `debug` | `boolean` |  | Logs every state change with its reason to the console, in development builds. |
-| `variant` | `enum` | `subtle` |  |
-| `size` | `enum` | `md` |  |
+| `variant` | `'light' \| 'filled' \| 'outline' \| 'subtle' \| 'default' \| 'danger'` | `filled` |  |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `md` |  |
 | `leftSection` | `ReactNode` |  | Content before the label, usually an icon. |
 | `rightSection` | `ReactNode` |  | Content after the label. |
 | `loading` | `boolean` |  | Shows a spinner and blocks presses. A Promise returned from `onClick` does this on its own. |

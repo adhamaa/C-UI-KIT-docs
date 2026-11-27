@@ -132,7 +132,7 @@ import { RHFColorInput } from '@adhamaa/ui-kit/form'
 | `defaultValue` | `string` |  |  |
 | `onChange` | `((value: string) => void)` |  | Called as the colour changes, including mid-drag. |
 | `onChangeEnd` | `((value: string) => void)` |  | Called once a change ends: a drag released or an edit committed. |
-| `format` | `enum` | `'hex'` |  |
+| `format` | `'hex' \| 'srgb' \| 'hsl' \| 'oklch'` | `'hex'` |  |
 | `swatches` | `string[]` |  | Preset colours to pick from. |
 | `withAlpha` | `boolean` |  | Show an alpha slider. |
 | `label` | `ReactNode` |  | The visible label. |
@@ -142,7 +142,7 @@ import { RHFColorInput } from '@adhamaa/ui-kit/form'
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |

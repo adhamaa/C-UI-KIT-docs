@@ -81,8 +81,8 @@ const InContext = () => (
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `variant` | `enum` | `dots` | `dots` is the staggered three-dot loader; `spinner` a ring. |
-| `size` | `enum` | `md` |  |
+| `variant` | `'dots' \| 'spinner'` | `dots` | `dots` is the staggered three-dot loader; `spinner` a ring. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl'` | `md` |  |
 | `color` | `string` |  | Colour: any CSS colour. Defaults to the primary foreground of the context. |
 | `label` | `string \| null` | `Loading` | What screen readers hear. Pass `null` when something nearby already says it's loading, like a button label. |
 | `className` | `string` |  |  |

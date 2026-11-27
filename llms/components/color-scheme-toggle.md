@@ -38,12 +38,12 @@ Takes the **IconButton** props except `onClick` and `children`.
 
 | Prop | Type | Default | Description |
 | --- | --- | --- | --- |
-| `size` | `enum` | `'md'` |  |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` |  |
 | `className` | `string` |  |  |
 | `style` | `CSSProperties \| ((state: ButtonState) => CSSProperties)` |  | Styles, or a function of the part's state that returns them. |
-| `variant` | `enum` | `'filled'` |  |
+| `variant` | `'light' \| 'filled' \| 'outline' \| 'subtle' \| 'default' \| 'danger'` | `'filled'` |  |
 | `loading` | `boolean` |  | Shows a spinner and blocks presses. A Promise returned from `onClick` does this on its own. |
-| `type` | `enum` |  | What a native button does in a form: `"submit"` submits it and `"reset"` resets it. Ignored when the button renders as something else. @defaultValue "button" |
+| `type` | `'button' \| 'reset' \| 'submit'` |  | What a native button does in a form: `"submit"` submits it and `"reset"` resets it. Ignored when the button renders as something else. @defaultValue "button" |
 | `render` | `RenderProp<ButtonState>` |  | Renders your own element: one that receives the part's props, or a function of the props and the state. |
 | `focusableWhenDisabled` | `boolean` |  | Keeps a disabled button in the tab order with `aria-disabled` instead of the native attribute, so it can hold focus while it becomes disabled and host a tooltip that says why. Presses still do nothing. @defaultValue false |
 | `pendingAnnouncement` | `string` |  | What screen readers hear once the button has been pending for a second, so a slow action doesn't pass in silence. Set it in the page's language. An empty string says nothing. @defaultValue "Loading" |

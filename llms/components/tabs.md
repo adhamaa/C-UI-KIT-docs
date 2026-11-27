@@ -228,8 +228,8 @@ Hidden panels unmount by default. Set `keepMounted` to keep their state, like a 
 | `value` | `string \| null` |  |  |
 | `defaultValue` | `string \| null` |  |  |
 | `onChange` | `((value: string) => void)` |  |  |
-| `variant` | `enum` | `line` | `line`: an underline under the selected tab. `pills`: a filled pill. |
-| `orientation` | `enum` | `horizontal` |  |
+| `variant` | `'line' \| 'pills'` | `line` | `line`: an underline under the selected tab. `pills`: a filled pill. |
+| `orientation` | `'vertical' \| 'horizontal'` | `horizontal` |  |
 | `grow` | `boolean` |  | Stretch the tabs across the list. |
 | `keepMounted` | `boolean` |  | Keep hidden panels mounted, so their state survives switching. |
 | `aria-label` | `string` |  | Accessible name of the tab list. |

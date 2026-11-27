@@ -136,7 +136,7 @@ The form value is a `File`, a `File[]` or `null`. Upload the files in your submi
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -147,8 +147,8 @@ The form value is a `File`, a `File[]` or `null`. Upload the files in your submi
 | `maxFiles` | `number` |  | Most files, with `multiple`. |
 | `onReject` | `((rejected: FileRejectionInfo[]) => void)` |  | Called with files that failed `accept`, `maxSize`, `maxFiles` or the duplicate check. |
 | `showRejections` | `boolean \| ((rejected: FileRejectionInfo[]) => ReactNode)` | `true` | Show a message under the field when files are rejected. Pass a function to word it yourself. |
-| `variant` | `enum` | `'button'` | `button`: a compact field with a Browse button. `dropzone`: a large area to drop files on. |
-| `preview` | `enum` | `'list'` | How chosen files show. `list`: name and size rows. `cards`: cards with an image thumbnail (or a document icon), name and size. With `cards` in a dropzone, the cards fill the dropzone, which still takes drops. |
+| `variant` | `'button' \| 'dropzone'` | `'button'` | `button`: a compact field with a Browse button. `dropzone`: a large area to drop files on. |
+| `preview` | `'list' \| 'cards'` | `'list'` | How chosen files show. `list`: name and size rows. `cards`: cards with an image thumbnail (or a document icon), name and size. With `cards` in a dropzone, the cards fill the dropzone, which still takes drops. |
 | `placeholder` | `ReactNode` |  | Main text inside the dropzone, or beside the button. |
 | `hint` | `ReactNode` |  | Smaller text under the dropzone's placeholder, like a size limit. |
 | `buttonLabel` | `ReactNode` | `'Browse'` | Label of the browse button. |

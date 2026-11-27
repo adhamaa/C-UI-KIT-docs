@@ -81,7 +81,7 @@ import { RHFTimeInput } from '@adhamaa/ui-kit/form'
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -92,7 +92,7 @@ import { RHFTimeInput } from '@adhamaa/ui-kit/form'
 | `onChange` | `((value: string \| null) => void)` |  |  |
 | `onBlur` | `FocusEventHandler<HTMLElement>` |  |  |
 | `withSeconds` | `boolean` |  | Show seconds as well. |
-| `hourCycle` | `enum` | `the locale's` | Use a 12 or 24 hour clock. |
+| `hourCycle` | `12 \| 24` | `the locale's` | Use a 12 or 24 hour clock. |
 | `min` | `string` |  |  |
 | `max` | `string` |  |  |
 

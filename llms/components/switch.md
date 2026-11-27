@@ -83,7 +83,7 @@ import { RHFSwitch } from '@adhamaa/ui-kit/form'
 | `withAsterisk` | `boolean` |  | Show the asterisk without making the control natively required. |
 | `disabled` | `boolean` |  |  |
 | `readOnly` | `boolean` |  |  |
-| `size` | `enum` | `'md'` | Control height and text size. |
+| `size` | `'xs' \| 'sm' \| 'md' \| 'lg'` | `'md'` | Control height and text size. |
 | `className` | `string` |  | Classes for the outer wrapper. |
 | `classNames` | `Partial<Record<FieldPart, string>>` |  | Classes for each part: `root`, `label`, `description`, `error`, `control`. |
 | `style` | `CSSProperties` |  |  |
@@ -94,7 +94,7 @@ import { RHFSwitch } from '@adhamaa/ui-kit/form'
 | `onChange` | `((checked: boolean) => void)` |  | Called with the new checked state. |
 | `onBlur` | `FocusEventHandler<HTMLButtonElement>` |  |  |
 | `value` | `string` | `'on'` | What the control submits while checked. |
-| `labelPosition` | `enum` | `end` | Where the label sits: beside the switch, or above it like other fields. |
+| `labelPosition` | `'end' \| 'top'` | `end` | Where the label sits: beside the switch, or above it like other fields. |
 
 ## Styling
 

@@ -184,7 +184,7 @@
           },
           "variant": {
             "defaultValue": {
-              "value": "subtle"
+              "value": "filled"
             },
             "description": "",
             "name": "variant",
@@ -13140,6 +13140,6 @@
   },
   "meta": {
     "docgen": "react-docgen-typescript",
-    "durationMs": 6651
+    "durationMs": 4965
   }
 }

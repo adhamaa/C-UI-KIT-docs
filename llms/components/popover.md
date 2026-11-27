@@ -91,8 +91,8 @@ const Placement = (args) => (
 | `opened` | `boolean` |  | Controlled open state. |
 | `defaultOpened` | `boolean` |  |  |
 | `onOpenChange` | `((opened: boolean) => void)` |  |  |
-| `side` | `enum` | `bottom` | Which side of the trigger the popup opens on. |
-| `align` | `enum` | `start` | How the popup lines up with the trigger. |
+| `side` | `'top' \| 'right' \| 'bottom' \| 'left'` | `bottom` | Which side of the trigger the popup opens on. |
+| `align` | `'end' \| 'center' \| 'start'` | `start` | How the popup lines up with the trigger. |
 | `width` | `string \| number` | `fits the content` | Popup width, any CSS length. |
 | `className` | `string` |  | Classes for the trigger button. |
 | `contentClassName` | `string` |  | Classes for the popup. |
