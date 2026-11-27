@@ -1,4 +1,4 @@
-# C-UI-KIT (@adhamaa/ui-kit) v0.9.0
+# C-UI-KIT (@adhamaa/ui-kit) v0.9.1
 
 > Shared, themeable React 19 UI kit for INFRACIVIC apps, built on ui-sdk (behaviour and accessibility) with the kit's own CSS. Install `@adhamaa/ui-kit` only; it brings ui-sdk, so never install `@ui-sdk/*`. `@adhamaa/ui-kit/table` (DataTable) also needs `ag-grid-community` and `ag-grid-react`; `@adhamaa/ui-kit/form` (react-hook-form fields) needs `react-hook-form`. Load `@adhamaa/ui-kit/styles.css` once and wrap the app in `UIKitProvider`.
 
