@@ -1,0 +1,65 @@
+# C-UI-KIT (@adhamaa/ui-kit) v0.9.0
+
+> Shared, themeable React 19 UI kit for INFRACIVIC apps, built on ui-sdk (behaviour and accessibility) with the kit's own CSS. Install `@adhamaa/ui-kit` only; it brings ui-sdk, so never install `@ui-sdk/*`. `@adhamaa/ui-kit/table` (DataTable) also needs `ag-grid-community` and `ag-grid-react`; `@adhamaa/ui-kit/form` (react-hook-form fields) needs `react-hook-form`. Load `@adhamaa/ui-kit/styles.css` once and wrap the app in `UIKitProvider`.
+
+## Guides
+
+- [Introduction](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/introduction.md): `@adhamaa/ui-kit` is a set of basic React components shared by every INFRACIVIC app.
+- [Getting started](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/getting-started.md): The kit is a private package on GitHub Packages.
+- [Theming](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/theming.md): Every component reads its colours, radius and fonts from CSS variables.
+- [Forms with react-hook-form](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/forms-with-react-hook-form.md): Import from `@adhamaa/ui-kit/form`.
+- [Migrating from SWIFTO](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/migrating-from-swifto.md): The kit started as SWIFTO's `src/components/ui`, rebuilt on ui-sdk instead of Mantine.
+- [Contributing](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/contributing.md): How to add a component to the kit, and how to document it so its page matches the rest.
+- [Tokens](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/tokens.md): Every component reads its colours, radius, shadows, fonts and heights from CSS variables.
+
+## Components
+
+- [UIKitProvider](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/uikit-provider.md): Applies a theme and hosts the toast region and modal stack.
+- [Button](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/button.md): A button with the kit's variants.
+- [Checkbox](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/checkbox.md): A checkbox with its label beside it.
+- [Chip](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/chip.md): A pill that toggles on and off, for filters and tags.
+- [ColorInput](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/color-input.md): A text field for a colour, with a swatch that opens a picker.
+- [FileInput](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/file-input.md): Pick or drop files.
+- [NumberInput](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/number-input.md): A field for numbers: it parses typed text, clamps to `min`/`max` and formats for display, while the value stays a plain number.
+- [PasswordInput](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/password-input.md): A password field with a show/hide toggle.
+- [RadioGroup](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/radio-group.md): Pick one of a few options, all visible at once.
+- [SearchInput](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/search-input.md): A text field for searching: a search icon, a clear button and a debounced `onSearch`.
+- [SegmentedControl](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/segmented-control.md): A row of mutually exclusive options, like view switches.
+- [Switch](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/switch.md): An on/off switch with its label beside it (or above it, with `labelPosition="top"`).
+- [TextInput](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/text-input.md): A single-line text field with a label, description and error.
+- [Textarea](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/textarea.md): A multi-line text field.
+- [Autocomplete](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/autocomplete.md): A text field that suggests values as you type.
+- [InfiniteSelect](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/infinite-select.md): A Select (or MultiSelect with `multiple`) whose options come from a paged, searchable source: an API.
+- [MultiSelect](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/multi-select.md): Pick several options, shown as removable chips, with type-to-filter.
+- [Select](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/select.md): Pick one option from a list.
+- [DatePicker](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/date-picker.md): A date field: type the date or pick it from a calendar.
+- [MonthPicker](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/month-picker.md): A month field: opens a year switcher and a grid of months.
+- [TimeInput](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/time-input.md): A time field, typed segment by segment.
+- [ActionMenu](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/action-menu.md): A button that opens a list of actions: the "⋮" row menu, or any overflow menu.
+- [Dialog](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/dialog.md): Opens a focused task over the page, like editing a record or filling in a short form.
+- [Popover](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/popover.md): A button that opens a floating panel of any content: a notification list, a filter form, extra details.
+- [Toaster](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/toaster.md): Where toasts appear.
+- [Tooltip](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/tooltip.md): A short hint on hover or focus.
+- [Loader](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/loader.md): Shows that something is loading.
+- [LoadingOverlay](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/loading-overlay.md): Covers its parent with a translucent layer and a loader.
+- [Skeleton](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/skeleton.md): A placeholder shape while content loads.
+- [Avatar](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/avatar.md): A user's picture, with their initials while it loads or if there isn't one.
+- [Badge](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/badge.md): A short label for a status or a count.
+- [Card](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/card.md): A surface that groups related content, with an optional header.
+- [EmptyState](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/empty-state.md): A placeholder for an empty list, a missing result or a feature that's not ready yet.
+- [ImagePreviewer](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/image-previewer.md): A thumbnail that opens the image full screen, with zoom.
+- [ScrollArea](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/scroll-area.md): A scrollable box with slim, themed scrollbars.
+- [Timeline](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/timeline.md): A vertical list of events: an activity log or a workflow's stages.
+- [Accordion](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/accordion.md): Sections that expand and collapse, like an FAQ.
+- [AppShell](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/app-shell.md): The page frame: a header, a sidebar, the main area and a footer.
+- [Breadcrumb](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/breadcrumb.md): Shows where the current page sits in the app.
+- [Pagination](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/pagination.md): Page links with previous and next buttons.
+- [Tabs](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/tabs.md): Switches between panels of related content.
+- [ColorSchemeToggle](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/color-scheme-toggle.md): Switches between light and dark.
+- [DataTable](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/data-table.md): A data table on AG Grid Community: a toolbar with title, search, refresh and buttons; row numbers; a row-action column; formatted numeric columns; and pagination, on the client or the server.
+- [FormFields](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/form-fields.md): Renders a form from a config: each entry becomes the matching RHF field.
+
+## Optional
+
+- [Everything in one file](https://adhamaa.github.io/C-UI-KIT-docs/llms-full.txt)
+- [Storybook docs](https://adhamaa.github.io/C-UI-KIT-docs/)
