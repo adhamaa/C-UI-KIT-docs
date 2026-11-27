@@ -620,13 +620,13 @@
 <header>
   <div class="wrap">
     <h1>Manifest Debugger</h1>
-    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">1/44 API error</a><a class="filter-pill info" data-k="infos" href="#filter-infos">3/44 infos</a><span class="filter-pill ok" aria-disabled="true">195 stories ok</span><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">14/195 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">50 docs ok</a></div>
+    <div class="summary"><a class="filter-pill all" data-k="all" href="#filter-all">All</a><a class="filter-pill err" data-k="errors" href="#filter-errors">1/44 API error</a><a class="filter-pill info" data-k="infos" href="#filter-infos">3/44 infos</a><span class="filter-pill ok" aria-disabled="true">195 stories ok</span><a class="filter-pill info" data-k="story-warnings" href="#filter-story-warnings">14/195 incomplete snippets</a><a class="filter-pill ok" data-k="docs" href="#filter-docs">51 docs ok</a></div>
   </div>
 </header>
 <main>
   <div class="wrap">
     <div class="note ok" style="margin-bottom: 16px;">
-              Using <code>react-docgen-typescript</code>. Generation took <strong>5.8s</strong>.
+              Using <code>react-docgen-typescript</code>. Generation took <strong>4.9s</strong>.
             </div>
     <h2 class="section-title">Components</h2>
     <div class="grid" role="list">
@@ -16679,10 +16679,131 @@ During the move, SWIFTO keeps `src/components/ui/*` as thin re-exports of the ki
   aria-label="Docs">
   <div class="head">
     <div class="title">
+      <h2><span class="status-dot dot-ok"></span> Use with AI</h2>
+      <div class="badges">
+        
+        <label for="doc-5-use-with-ai-docs-content" class="badge ok as-toggle">view content</label>
+      </div>
+    </div>
+    <div class="meta" title="./src/docs/UseWithAI.mdx">use-with-ai--docs · ./src/docs/UseWithAI.mdx</div>
+    <div># Use with AI AI coding assistants (Claude Code, Cursor, VS Code Copilot, Codex…) can read...</div>
+  </div>
+
+  <!-- Hidden toggles must be siblings BEFORE .panels -->
+  
+  <input id="doc-5-use-with-ai-docs-content" class="tg tg-content" type="checkbox" hidden />
+
+  <div class="panels">
+    
+    
+        <div class="panel panel-content">
+          <div class="mdx-content">
+            <pre><code>import { Meta } from &#39;@storybook/addon-docs/blocks&#39;
+
+&lt;Meta title=&quot;Use with AI&quot; /&gt;
+
+# Use with AI
+
+AI coding assistants (Claude Code, Cursor, VS Code Copilot, Codex…) can read these docs, so they suggest the kit&#39;s real components and props instead of guessing. There are two ways to give them the docs, and both are free and need nothing installed in your app.
+
+## MCP server (recommended)
+
+Connect your assistant to the kit&#39;s MCP server. It&#39;s served by [GitMCP](https://gitmcp.io), a free service that reads the docs published on this site.
+
+```
+https://adhamaa.gitmcp.io/C-UI-KIT-docs
+```
+
+**Claude Code**, from your app&#39;s folder:
+
+```bash
+claude mcp add --transport http c-ui-kit https://adhamaa.gitmcp.io/C-UI-KIT-docs
+```
+
+**Cursor**: add to `.cursor/mcp.json` in your app:
+
+```json
+{
+  &quot;mcpServers&quot;: {
+    &quot;c-ui-kit&quot;: { &quot;url&quot;: &quot;https://adhamaa.gitmcp.io/C-UI-KIT-docs&quot; }
+  }
+}
+```
+
+**VS Code (Copilot)**: add to `.vscode/mcp.json`:
+
+```json
+{
+  &quot;servers&quot;: {
+    &quot;c-ui-kit&quot;: { &quot;type&quot;: &quot;http&quot;, &quot;url&quot;: &quot;https://adhamaa.gitmcp.io/C-UI-KIT-docs&quot; }
+  }
+}
+```
+
+**Codex**: add to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.c-ui-kit]
+url = &quot;https://adhamaa.gitmcp.io/C-UI-KIT-docs&quot;
+```
+
+Check it works by asking: *&quot;Using the c-ui-kit MCP, list the kit&#39;s components.&quot;*
+
+### What the assistant can do with it
+
+| Tool | What it&#39;s for |
+| --- | --- |
+| `fetch_C_UI_KIT_docs_documentation` | Reads the index: every component and guide, with a one-line summary and a link |
+| `fetch_generic_url_content` | Reads one page from the index, like `…/llms/components/multi-select.md`: props table, examples and usage notes |
+| `search_C_UI_KIT_docs_docs` | Searches the docs. It may return the index until GitMCP has indexed the site |
+
+Assistants usually read the index first, then the page for the component they need.
+
+## Plain text, without MCP
+
+For tools that don&#39;t support MCP, point them at these files:
+
+| File | What&#39;s in it |
+| --- | --- |
+| [`llms.txt`](https://adhamaa.github.io/C-UI-KIT-docs/llms.txt) | The index, following the [llms.txt](https://llmstxt.org) convention |
+| [`llms-full.txt`](https://adhamaa.github.io/C-UI-KIT-docs/llms-full.txt) | Every page in one file (about 270 KB) |
+| `llms/components/&lt;name&gt;.md` | One page per component, like [`select.md`](https://adhamaa.github.io/C-UI-KIT-docs/llms/components/select.md) |
+
+## Tell the assistant about the kit
+
+Paste this into your app&#39;s `AGENTS.md` or `CLAUDE.md`, so the assistant uses the kit without being asked each time:
+
+```md
+## UI components
+
+- Build UI with `@adhamaa/ui-kit` (C-UI-KIT). Look up components and props with the
+  `c-ui-kit` MCP server, or https://adhamaa.github.io/C-UI-KIT-docs/llms.txt.
+- Import components from `@adhamaa/ui-kit`, the DataTable from `@adhamaa/ui-kit/table`,
+  and react-hook-form fields (`RHF*`, `FormFields`, `FormDialog`) from `@adhamaa/ui-kit/form`.
+- Never install or import `@ui-sdk/*`: the kit brings it.
+- Style with the theme tokens (`var(--ui-primary)`, `tokenVar(&#39;border&#39;)`…), not hard-coded colours.
+```
+
+## How it stays current
+
+Every `yarn deploy-docs` regenerates the text files from the same JSDoc, stories and docs pages as this site, so the MCP server always describes the latest published version. If your app is on an older version, check its changelog for props that were added since.
+
+The docs are only as good as their source. When you add or change a component, write its JSDoc and docs page for someone, or something, that has never seen it. See **Contributing**.
+</code></pre>
+          </div>
+        </div>
+  </div>
+</article>
+<article
+  class="card is-doc no-doc-error"
+  role="listitem"
+  aria-label="Docs">
+  <div class="head">
+    <div class="title">
       <h2><span class="status-dot dot-ok"></span> Components/Theming/UIKitProvider</h2>
       <div class="badges">
         
-        <label for="doc-5-components-theming-uikitprovider-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-6-components-theming-uikitprovider-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/stories/Theming/UIKitProvider.mdx">components-theming-uikitprovider--docs · ./src/stories/Theming/UIKitProvider.mdx</div>
@@ -16691,7 +16812,7 @@ During the move, SWIFTO keeps `src/components/ui/*` as thin re-exports of the ki
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-5-components-theming-uikitprovider-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-6-components-theming-uikitprovider-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -16767,7 +16888,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
       <h2><span class="status-dot dot-ok"></span> Contributing</h2>
       <div class="badges">
         
-        <label for="doc-6-contributing-docs-content" class="badge ok as-toggle">view content</label>
+        <label for="doc-7-contributing-docs-content" class="badge ok as-toggle">view content</label>
       </div>
     </div>
     <div class="meta" title="./src/docs/Contributing.mdx">contributing--docs · ./src/docs/Contributing.mdx</div>
@@ -16776,7 +16897,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
   <!-- Hidden toggles must be siblings BEFORE .panels -->
   
-  <input id="doc-6-contributing-docs-content" class="tg tg-content" type="checkbox" hidden />
+  <input id="doc-7-contributing-docs-content" class="tg tg-content" type="checkbox" hidden />
 
   <div class="panels">
     
@@ -16929,7 +17050,9 @@ The docs are published to GitHub Pages at https://adhamaa.github.io/C-UI-KIT-doc
 yarn deploy-docs
 ```
 
-It builds Storybook and pushes `apps/docs/storybook-static` to the `gh-pages` branch of the docs repo. You need push access to that repo. Set `DOCS_REPO` to publish somewhere else, for example a fork.
+It builds Storybook, generates the AI-readable text (`llms.txt`, `llms-full.txt` and a Markdown page per component, from the Storybook manifests), and pushes `apps/docs/storybook-static` to the `gh-pages` branch of the docs repo. You need push access to that repo. Set `DOCS_REPO` to publish somewhere else, for example a fork.
+
+The kit&#39;s MCP server (see **Use with AI**) reads that text, so your JSDoc, stories and docs pages are what AI assistants learn from. Keep them complete, and run `yarn build-storybook &amp;&amp; yarn build-llms` to preview the output in `apps/docs/storybook-static/llms/`.
 </code></pre>
           </div>
         </div>

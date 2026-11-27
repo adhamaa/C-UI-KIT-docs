@@ -9,6 +9,7 @@
 - [Theming](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/theming.md): Every component reads its colours, radius and fonts from CSS variables.
 - [Forms with react-hook-form](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/forms-with-react-hook-form.md): Import from `@adhamaa/ui-kit/form`.
 - [Migrating from SWIFTO](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/migrating-from-swifto.md): The kit started as SWIFTO's `src/components/ui`, rebuilt on ui-sdk instead of Mantine.
+- [Use with AI](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/use-with-ai.md): AI coding assistants (Claude Code, Cursor, VS Code Copilot, Codex…) can read these docs, so they suggest the kit's real components and props instead of guessing.
 - [Contributing](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/contributing.md): How to add a component to the kit, and how to document it so its page matches the rest.
 - [Tokens](https://adhamaa.github.io/C-UI-KIT-docs/llms/guides/tokens.md): Every component reads its colours, radius, shadows, fonts and heights from CSS variables.
 

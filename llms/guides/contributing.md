@@ -140,6 +140,8 @@ The docs are published to GitHub Pages at https://adhamaa.github.io/C-UI-KIT-doc
 yarn deploy-docs
 ```
 
-It builds Storybook and pushes `apps/docs/storybook-static` to the `gh-pages` branch of the docs repo. You need push access to that repo. Set `DOCS_REPO` to publish somewhere else, for example a fork.
+It builds Storybook, generates the AI-readable text (`llms.txt`, `llms-full.txt` and a Markdown page per component, from the Storybook manifests), and pushes `apps/docs/storybook-static` to the `gh-pages` branch of the docs repo. You need push access to that repo. Set `DOCS_REPO` to publish somewhere else, for example a fork.
+
+The kit's MCP server (see **Use with AI**) reads that text, so your JSDoc, stories and docs pages are what AI assistants learn from. Keep them complete, and run `yarn build-storybook && yarn build-llms` to preview the output in `apps/docs/storybook-static/llms/`.
 
 Web page: https://adhamaa.github.io/C-UI-KIT-docs/?path=/docs/contributing--docs
